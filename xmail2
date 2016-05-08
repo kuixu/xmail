@@ -1,0 +1,66 @@
+#!/usr/bin/env perl
+#
+# Copyright 2016, Barry(Kui Xu) < kuixu.tj@gmail.com >
+# 
+# This commline email tool is for linux users to notify the progress of your task.
+# For example, you submit a long-time-running job with ==xmail==, then you will receive
+# a notify message from xmail with a warning that your task is finished.
+#
+
+use Getopt::Std;
+use LWP::UserAgent;
+use HTTP::Cookies;
+
+
+use vars qw ($opt_h $opt_u $opt_s $opt_m);
+&getopts('hu:s:m:');
+
+my $user="zhanglab163@163.com";
+my $pass="b1002b1002";
+
+my $usage = <<_EOH_;
+ ----------xmail----------------
+
+Usage:
+        xmail -u useremail -s subject -m message [-option value]
+
+Option 
+        -u      [str]*  the email you want to send notification to. eg. xxx\@gmail.com
+        -s      [str]*  the subject of the email.
+        -m      [str]   more detaills can be placed.  
+    
+        -h              print this usage        
+
+Examples:
+        xmail -u xxx\@gmail.com -s "xxx task completed!"
+
+
+xmail Version 0.0.1 
+By Kui From ZhangLab 
+_EOH_
+;
+
+sub init
+{
+    die $usage if ( $opt_h || not defined $opt_u ||not defined $opt_s);
+    $opt_m = $opt_s if ( not defined $opt_m );
+    1;
+}
+&init();
+
+my $to=$opt_u;
+my $sub=$opt_s;
+my $msg=$opt_m;
+
+print "=======> xmail   By Kui. <=======\nTo:$to\nSub:$sub\nMsg:$msg\n=================================\n";
+
+my $ua = LWP::UserAgent->new;
+$ua->agent("Mozilla/5.0 (Windows NT 6.1; rv:30.0) Gecko/20100101 Firefox/30.0");
+my $cookie_jar = HTTP::Cookies->new(
+      file=>'.lwp_cookies.txt',
+      autosave=>1,
+      ignore_discard=>1);
+$ua->cookie_jar($cookie_jar);
+my $res = $ua->get("http://cs.xukui.cn/mail.php?u=$to&s=$sub&m=$msg");
+#print "http://cs.xukui.cn/mail.php?u=$to&s='$sub'&m='$msg'\n";
+
