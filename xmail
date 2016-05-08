@@ -51,17 +51,10 @@ my $to=$opt_u;
 my $sub=$opt_s;
 my $msg=$opt_m;
 print "=======> xmail   By Kui. <=======\nemail:$to\nsub:$sub\nmsg:$msg\n=================================\n";
-#my $email = Emailesque->new(
-#    to      => 'xxx@gmail.com',
-#    from    => 'xxx@163.com',
-#    subject => 'test perl',
-#    message => 'Working on Hash::Merge::Simple',
-  #  files   => [ '/path/to/file/1', '/path/to/file/2' ],
-#);
 my $datetime = localtime;
 my $email = Emailesque->new(
     to      => $to,
-    from    => 'zhanglab163@163.com',
+    from    => 'xxxxx@163.com',
     subject => $sub,
     message => $msg."\n\n$datetime\n-------------------\n\n xmail   v1.0    \nBy Kui From ZhangLab.",
   #  files   => [ '/path/to/file/1', '/path/to/file/2' ],
@@ -72,8 +65,8 @@ my $result = $email->send({
     driver  => 'smtp',
     host    => 'smtp.163.com',
     port    => 465,
-    user    => 'zhanglab163@163.com',
-    pass    => 'b1002b1002'
+    user    => 'your email address',
+    pass    => 'your email passwd'
 });
 
 if ($result->isa('Email::Sender::Failure')) {
