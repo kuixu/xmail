@@ -33,7 +33,7 @@ command line email tool, notify tool, very easy-to-use.
 
 ### configuration
 
-        1. config the sender username and password at line 
+        1. config the sender username and password at line 57 and 68,69 
 
         2. sudo mv xmail /usr/xmail
 
