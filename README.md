@@ -7,23 +7,31 @@ command line email tool, notify tool, very easy-to-use.
 
 ## Option
 
-        -u      [str]*  protein name(UniProt accession number)
-        -s      [str]   cut-off of Prediction LR, default l=0.5
-        -m      [str]   cut-off of Prediction LR, default l=0.5
-    
+        -u      [str]*  the email you want to send notification to. eg. xxx@gmail.com
+        -s      [str]*  the subject of the email.
+        -m      [str]   more detaills can be placed.  
+                            
         -h              print this usage        
 
+
+
 ## Examples:
-        xmail -u xxx.com -s "bowtie2 complete!" -m "bowtie2 run complete! 1111.fq file"
+
+        xmail -u xxx@gmail.com -s "xxx task completed!"                
+
 
 ## Installation
 
 
 ### requirements
-  perl module: Emailesque
-cpanm --force Emailesque
+ 
+        perl module: Emailesque
+ or
+        cpanm --force Emailesque
 
 ### configuration
-  1. config the sender username and password
-  2. perl path
+
+        1. config the sender username and password
+
+        2. perl path
   
