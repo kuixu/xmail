@@ -26,7 +26,9 @@ command line email tool, notify tool, very easy-to-use.
 ### requirements
  
         perl module: Emailesque
- or
+ 
+        or
+        
         cpanm --force Emailesque
 
 ### configuration
