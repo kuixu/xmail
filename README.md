@@ -23,18 +23,8 @@ command line email tool, notify tool, very easy-to-use.
 ## Installation
 
 
-### requirements
- 
-        perl module: Emailesque
- 
-        or
-        
-        cpanm --force Emailesque
-
 ### configuration
 
-        1. config the sender username and password at line 57 and 68,69 
-
-        2. sudo mv xmail /usr/xmail
+        <code> sudo mv xmail /usr/xmail </code>
 
   
