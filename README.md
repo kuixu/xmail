@@ -25,6 +25,6 @@ command line email tool, notify tool, very easy-to-use.
 
 ### configuration
 
-        <code> sudo mv xmail /usr/xmail </code>
+<code> sudo mv xmail /usr/xmail </code>
 
   
