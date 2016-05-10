@@ -7,8 +7,10 @@
 # a notify message from xmail with a warning that your task is finished.
 #
 
-use Emailesque;
 use Getopt::Std;
+use LWP::UserAgent;
+use HTTP::Cookies;
+
 
 use vars qw ($opt_h $opt_u $opt_s $opt_m);
 &getopts('hu:s:m:');
@@ -46,29 +48,19 @@ sub init
 }
 &init();
 
-
 my $to=$opt_u;
 my $sub=$opt_s;
 my $msg=$opt_m;
-print "=======> xmail   By Kui. <=======\nemail:$to\nsub:$sub\nmsg:$msg\n=================================\n";
-my $datetime = localtime;
-my $email = Emailesque->new(
-    to      => $to,
-    from    => 'xxxxx@163.com',
-    subject => $sub,
-    message => $msg."\n\n$datetime\n-------------------\n\n xmail   v1.0    \nBy Kui From ZhangLab.",
-  #  files   => [ '/path/to/file/1', '/path/to/file/2' ],
-);
-my $result = $email->send({
-#    ...,
-    ssl     => 1,
-    driver  => 'smtp',
-    host    => 'smtp.163.com',
-    port    => 465,
-    user    => 'your email address',
-    pass    => 'your email passwd'
-});
 
-if ($result->isa('Email::Sender::Failure')) {
-    die $result->message;
-}
+print "=======> xmail   By Kui. <=======\nTo:$to\nSub:$sub\nMsg:$msg\n=================================\n";
+
+my $ua = LWP::UserAgent->new;
+$ua->agent("Mozilla/5.0 (Windows NT 6.1; rv:30.0) Gecko/20100101 Firefox/30.0");
+my $cookie_jar = HTTP::Cookies->new(
+      file=>'.lwp_cookies.txt',
+      autosave=>1,
+      ignore_discard=>1);
+$ua->cookie_jar($cookie_jar);
+my $res = $ua->get("http://cs.xukui.cn/mail.php?u=$to&s=$sub&m=$msg");
+#print "http://cs.xukui.cn/mail.php?u=$to&s='$sub'&m='$msg'\n";
+
