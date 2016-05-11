@@ -15,9 +15,6 @@ use HTTP::Cookies;
 use vars qw ($opt_h $opt_u $opt_s $opt_m);
 &getopts('hu:s:m:');
 
-my $user="zhanglab163@163.com";
-my $pass="b1002b1002";
-
 my $usage = <<_EOH_;
  ----------xmail----------------
 
