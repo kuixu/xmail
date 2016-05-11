@@ -7,7 +7,6 @@
 # a notify message from xmail with a warning that your task is finished.
 #
 NUMARGS=$#
-#echo -e \\n"Number of arguments: $NUMARGS"
 if [ $NUMARGS -eq 0 ]; then
   usage
 fi
