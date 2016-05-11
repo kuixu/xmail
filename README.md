@@ -1,5 +1,5 @@
 # xmail
-command line email tool, notify tool, very easy-to-use. perl and bash-shell version provide
+Command line email tool, notify tool, very easy-to-use. Perl and Bash-shell version provide.
 
 ## Usage
 
