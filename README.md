@@ -22,9 +22,20 @@ Command line email tool, notify tool, very easy-to-use. Perl and Bash-shell vers
 
 ## Installation
 
+Very easy to install xmail, just move the excutable file `xmail` into your `/usr/bin` Path, 
 
-### configuration
+<code> sudo mv xmail /usr/bin/xmail </code>
 
-<code> sudo mv xmail /usr/xmail </code>
+Or add the `xmail` path into `$PATH`,
+
+<code> export PATH=/path/to/xmail:$PATH </code>
+
+
+## Instance
+
+* Alert me, when the programm finished.
+* Email me the content from a website(Firstly you have the scripts to grab the web page).
+
+
 
   
