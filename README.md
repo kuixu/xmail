@@ -33,9 +33,9 @@ Or add the `xmail` path into `$PATH`,
 
 ## Instance
 
-* Alert me, when the programm finished.
+* Alert me, when the program is finished.
 * Email me the content from a website(Firstly you have the scripts to grab the web page).
-
+* 
 
 
   
